@@ -1,5 +1,6 @@
 import * as Todo from '../todos/Todo'
 import * as TodoList from '../todos/TodoList'
+import * as VisibilityFilter from '../todos/VisibilityFilter'
 
 import { connect } from 'react-redux'
 
@@ -8,11 +9,11 @@ import { toggleTodo } from '../actions'
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
-    case 'SHOW_ALL':
+    case VisibilityFilter.SHOW_ALL:
       return TodoList.getAllTodos(todos)
-    case 'SHOW_COMPLETED':
+    case VisibilityFilter.SHOW_COMPLETED:
       return TodoList.getCompletedTodos(todos)
-    case 'SHOW_ACTIVE':
+    case VisibilityFilter.SHOW_ACTIVE:
       return TodoList.getActiveTodos(todos)
     default:
       throw new Error('Unknown filter: ' + filter)

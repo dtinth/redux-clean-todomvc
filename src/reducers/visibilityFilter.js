@@ -1,7 +1,9 @@
-const visibilityFilter = (state = 'SHOW_ALL', action) => {
+import * as VisibilityFilter from '../todos/VisibilityFilter'
+
+const visibilityFilter = (state = VisibilityFilter.initial, action) => {
   switch (action.type) {
     case 'SET_VISIBILITY_FILTER':
-      return action.filter
+      return VisibilityFilter.changeTo(action.filter)(state)
     default:
       return state
   }

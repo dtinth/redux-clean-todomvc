@@ -1,19 +1,22 @@
+import * as VisibilityFilter from '../todos/VisibilityFilter'
+
 import React from 'react'
+
 import FilterLink from '../containers/FilterLink'
 
 const Footer = () => (
   <p>
     Show:
     {" "}
-    <FilterLink filter="SHOW_ALL">
+    <FilterLink filter={VisibilityFilter.SHOW_ALL}>
       All
     </FilterLink>
     {", "}
-    <FilterLink filter="SHOW_ACTIVE">
+    <FilterLink filter={VisibilityFilter.SHOW_ACTIVE}>
       Active
     </FilterLink>
     {", "}
-    <FilterLink filter="SHOW_COMPLETED">
+    <FilterLink filter={VisibilityFilter.SHOW_COMPLETED}>
       Completed
     </FilterLink>
   </p>
