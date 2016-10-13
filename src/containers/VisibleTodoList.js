@@ -1,3 +1,4 @@
+import * as Todo from '../todos/Todo'
 import * as TodoList from '../todos/TodoList'
 
 import { connect } from 'react-redux'
@@ -18,8 +19,16 @@ const getVisibleTodos = (todos, filter) => {
   }
 }
 
+const getTodoProps = (todo) => {
+  return {
+    id: Todo.getId(todo),
+    text: Todo.getText(todo),
+    completed: Todo.isCompleted(todo)
+  }
+}
+
 const mapStateToProps = (state) => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  todos: getVisibleTodos(state.todos, state.visibilityFilter).map(getTodoProps)
 })
 
 const mapDispatchToProps =  ({
